@@ -30,6 +30,7 @@ public class Game
 		t2.start();
 		t.sleep(6000);
 		t.start();
+		t2.stop();
 			
 			
 		}
