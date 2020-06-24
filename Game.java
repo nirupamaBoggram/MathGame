@@ -7,32 +7,31 @@ import java.lang.Math;
 
 public class Game 
 {
-		public static void main(String[] args) {
+		public static void main(String[] args) throws InterruptedException {
 			Scanner sc  =new Scanner(System.in);
 			System.out.println("Enter your name");
 			String name=sc.next();
 			Score sr=new Score();
-			long starttime=System.currentTimeMillis();
-			long endTime=starttime+600;
-			boolean flag=false;
-			while(System.currentTimeMillis()<endTime&& flag==false)
-			{	
+			sr.Score(name);		
+			
+		System.out.println(endTime-starttime);
+		Runnable r1=()->
+		{
 				Level1 l=new Level1();
 				l.level1();
-				flag=true;
-			}
-			while(System.currentTimeMillis()<endTime&&flag==true)
-			{
+	
 				new Level2().level2();
-				flag=false;
-			}
-			while(System.currentTimeMillis()<endTime&&flag==false)
-			{
+				
 				new Level3().level2();
-				flag=true;
-			}
+		};
+				
+		Thread t=new Thread(sr);
+		Thread t2=new Thread(r1);
+		t2.start();
+		t.sleep(6000);
+		t.start();
 			
-			sr.totscore(name);		
+			
 		}
 }
 class Divisors
@@ -49,7 +48,6 @@ class Divisors
 			a[i]=num;
 			num2=num2*10;
 		}
-//		System.out.println(Arrays.toString(a));
 	}
 	public void divisor(int siz1,int siz2,int val,int val2,int n)
 	{
@@ -74,15 +72,19 @@ class Divisors
 	}
 	
 }
-class Score 
+class Score extends Thread
 {
 	private static int scr;
-	
+	String name;
+	public void Score(String name)
+	{
+		this.name=name;
+	}
 	public void score(int n)
 	{
 		scr=scr+n;
 	}
-	synchronized public void totscore(String name)
+	 public void run()
 	{
 		System.out.println("---------------------------------------------------------------");
 			System.out.println("          "+"Name :"+name);
@@ -95,15 +97,11 @@ class Play
 		public  int plyGame1()
 		{		
 			return Math.abs(rd.nextInt());
-//			System.out.println("num="+num);
 		}
 		public int plyGame2()
 		{
 			return Math.abs(rd.nextInt());
-//			System.out.println("num2="+num2);
-		}
-//			level1(num,num2);
-//			System.out.println();	
+		}	
 }
 class Level1 extends Play
 {
