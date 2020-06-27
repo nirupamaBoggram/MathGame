@@ -7,6 +7,7 @@ import java.lang.Math;
 
 public class Game 
 {
+		
 		public static void main(String[] args) throws InterruptedException {
 			Scanner sc  =new Scanner(System.in);
 			System.out.println("Enter your name");
@@ -14,7 +15,7 @@ public class Game
 			Score sr=new Score();
 			sr.Score(name);		
 			
-		System.out.println(endTime-starttime);
+		
 		Runnable r1=()->
 		{
 				Level1 l=new Level1();
@@ -24,17 +25,23 @@ public class Game
 				
 				new Level3().level2();
 		};
-				
+		if(name.length()==0)
+		{
+			System.out.println("please enter your name");
+		}	
+		else
+		{
 		Thread t=new Thread(sr);
 		Thread t2=new Thread(r1);
 		t2.start();
 		t.sleep(6000);
 		t.start();
-		t2.stop();
-			
-			
+		t2.stop();	
 		}
-}
+		}
+		}
+
+
 class Divisors
 {
 	int [] a=new int[9];
@@ -49,6 +56,7 @@ class Divisors
 			a[i]=num;
 			num2=num2*10;
 		}
+//		System.out.println(Arrays.toString(a));
 	}
 	public void divisor(int siz1,int siz2,int val,int val2,int n)
 	{
@@ -98,11 +106,15 @@ class Play
 		public  int plyGame1()
 		{		
 			return Math.abs(rd.nextInt());
+//			System.out.println("num="+num);
 		}
 		public int plyGame2()
 		{
 			return Math.abs(rd.nextInt());
-		}	
+//			System.out.println("num2="+num2);
+		}
+//			level1(num,num2);
+//			System.out.println();	
 }
 class Level1 extends Play
 {
