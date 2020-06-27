@@ -20,24 +20,19 @@ public class Game
 		{
 				Level1 l=new Level1();
 				l.level1();
-	
+				
 				new Level2().level2();
 				
 				new Level3().level2();
 		};
-		if(name.length()==0)
-		{
-			System.out.println("please enter your name");
-		}	
-		else
-		{
+		
 		Thread t=new Thread(sr);
 		Thread t2=new Thread(r1);
 		t2.start();
-		t.sleep(6000);
+		t.sleep(60000);
 		t.start();
 		t2.stop();	
-		}
+		
 		}
 		}
 
@@ -116,7 +111,7 @@ class Play
 //			level1(num,num2);
 //			System.out.println();	
 }
-class Level1 extends Play
+class Level1 extends Play 
 {
 	Divisors dv=new Divisors();
 	Score sr=new Score();
@@ -184,6 +179,7 @@ class Level1 extends Play
 
 	}
 	}
+	
 }
 class Level2 extends Play
 {
