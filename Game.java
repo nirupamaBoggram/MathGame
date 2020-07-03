@@ -10,8 +10,6 @@ public class Game
 		
 		public static void main(String[] args) throws InterruptedException {
 			Scanner sc  =new Scanner(System.in);
-			int ran=(int)Math.random();
-			System.out.println(ran);
 			System.out.println("Enter your name");
 			String name=sc.next();
 			Score sr=new Score();
