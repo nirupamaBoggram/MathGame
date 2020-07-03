@@ -10,6 +10,8 @@ public class Game
 		
 		public static void main(String[] args) throws InterruptedException {
 			Scanner sc  =new Scanner(System.in);
+			int ran=(int)Math.random();
+			System.out.println(ran);
 			System.out.println("Enter your name");
 			String name=sc.next();
 			Score sr=new Score();
@@ -29,7 +31,7 @@ public class Game
 		Thread t=new Thread(sr);
 		Thread t2=new Thread(r1);
 		t2.start();
-		t.sleep(60000);
+		t.sleep(6000);
 		t.start();
 		t2.stop();	
 		
@@ -111,9 +113,8 @@ class Play
 //			level1(num,num2);
 //			System.out.println();	
 }
-class Level1 extends Play 
+class Level1 
 {
-	Divisors dv=new Divisors();
 	Score sr=new Score();
 	Scanner sc=new Scanner(System.in);
 	
@@ -122,61 +123,30 @@ class Level1 extends Play
 		System.out.println("---------------------------------------------------------------");
 	System.out.println("Level 1");
 	for (int i=0;i<=3; i++) {
-		int num=plyGame1();
-		int num2=plyGame2();
-	
-		String str=Integer.toString(num);
-		String str2=Integer.toString(num2);
-		int val=str.length();
-		int val2=str2.length();
-		
-		if (val>=2&&val2>=2) {
-				dv.divisor(val,val2,num,num2,2);
-		}
-		else if(val>=2)
+	int rand1=0;
+	int rand2=0;
+	int j=1;
+	while(true)
+	{
+		rand1=(int)(Math.random()*j);
+		rand2=(int)(Math.random()*j);
+		j++;
+		if(rand1!=0&&rand2!=0)
 		{
-				int res=dv.divisor(val,2);
-				num=num/res;
-				System.out.println(num+"*"+num2+"=");
-				int userVal=sc.nextInt();
-				if (num*num2==userVal) {
-					System.out.println("correct");
-					sr.score(1);					
-				}
-				else
-				{
-					System.out.println("wrong");
-				}
+			break;
 		}
-		else if(val2>=2)
-		{
-			int res=dv.divisor(val2,2);
-				num2=num2/res;
-				System.out.println(num+"*"+num2+"=");
-				int userVal=sc.nextInt();
-				if (num*num2==userVal) {
-					System.out.println("correct");
-					sr.score(1);
-				}
-				else
-				{
-					System.out.println("wrong");
-				}
-		}
-		else
-		{
-			System.out.println(num+"*"+num2+"=");
-				int userVal=sc.nextInt();
-				if (num*num2==userVal) {
-					System.out.println("correct");
-					sr.score(1);
-				}
-				else
-				{
-					System.out.println("wrong");
-				}
-		}
-
+	}
+	System.out.println(rand1+"*"+rand2+"=");
+	int ans=sc.nextInt();
+	if(rand1*rand2==ans)
+	{
+		System.out.println("correct");
+		sr.score(1);
+	}
+	else
+	{
+		System.out.println("wrong");
+	}
 	}
 	}
 	
