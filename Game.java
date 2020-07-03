@@ -10,10 +10,10 @@ public class Game
 		
 		public static void main(String[] args) throws InterruptedException {
 			Scanner sc  =new Scanner(System.in);
-			int ran=(int)Math.random();
-			System.out.println(ran);
 			System.out.println("Enter your name");
 			String name=sc.next();
+			System.out.println("Challange yourself by mentioning time in seconds");
+			int sec=(sc.nextInt()*1000);
 			Score sr=new Score();
 			sr.Score(name);		
 			
@@ -31,7 +31,7 @@ public class Game
 		Thread t=new Thread(sr);
 		Thread t2=new Thread(r1);
 		t2.start();
-		t.sleep(6000);
+		t.sleep(sec);
 		t.start();
 		t2.stop();	
 		
@@ -53,7 +53,6 @@ class Divisors
 			a[i]=num;
 			num2=num2*10;
 		}
-//		System.out.println(Arrays.toString(a));
 	}
 	public void divisor(int siz1,int siz2,int val,int val2,int n)
 	{
@@ -103,15 +102,11 @@ class Play
 		public  int plyGame1()
 		{		
 			return Math.abs(rd.nextInt());
-//			System.out.println("num="+num);
 		}
 		public int plyGame2()
 		{
 			return Math.abs(rd.nextInt());
-//			System.out.println("num2="+num2);
 		}
-//			level1(num,num2);
-//			System.out.println();	
 }
 class Level1 
 {
