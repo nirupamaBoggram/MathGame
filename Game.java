@@ -9,6 +9,7 @@ public class Game
 {
 		
 		public static void main(String[] args) throws InterruptedException {
+			Driver driverref =new Driver();
 			Scanner sc  =new Scanner(System.in);
 			System.out.println("Enter your name");
 			String name=sc.next();
